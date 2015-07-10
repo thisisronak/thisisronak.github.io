@@ -1,0 +1,122 @@
+<!-- Incomplete! Need to work out more on Bootstrap navbars or maybe add materialize -->
+
+<!DOCTYPE html>
+<html ng-app="LOLApp" ng-controller="LOLController"><head>
+<meta charset="UTF-8"/>
+<title>Ronak Jain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./index/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link href="./index/style.css" rel="stylesheet" type="text/css" media="screen">
+<script src="index/angular.js"></script>
+<style type="text/css"></style></head>
+<body>
+  
+  <div class="container">
+    <div class="info">
+      <!-- <a href="/"><img src="./index/logo.jpg" alt="Ronak Jain"></a> -->
+      <div class="info-internal">
+        <h3 style="margin:0">Ronak Jain</h3>
+        <p class="links">
+          <a class="btn btn-default" href="https://github.com/thisisronak">GitHub</a>
+          <a class="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+          <a class="btn btn-default" href="http://blog.ronakjain.com">Blog</a>
+          <a class="btn btn-default" href="http://last.fm/user/coderon">Music</a>
+          <a class="btn btn-default" href="https://twitter.com/thisisronak">Twitter</a>
+          <!-- <a class="btn btn-warning" href="cv.pdf">Resume</a> -->
+          <a class="btn btn-primary" href="mailto:contact@ronakjain.com">Mail me!</a>
+          <br>
+        </p>
+      </div>
+      <div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="www.ndejf.com">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+
+  </div>
+ </div>
+    
+    <!-- projects thingy -->
+    <div class="projects row">
+      <div class="project" ng-class="p.class" ng-repeat="p in projects | orderBy:'time_hint':true">
+        <div class="project-box">
+          <span class="when">{{ p.when }}</span>
+          <div ng-if="p.img" class="img">
+            <img ng-src="{{p.img}}" ng-alt="{{p.name}}"/>
+          </div>
+          <div class="infos">
+            <a ng-href="{{ p.link }}"><h4 class="title">{{ p.name }}</h4></a>
+            <a ng-if="p.source" ng-href="{{ p.source }}">source</a>
+            <p class="what">{{ p.what }}</p>
+            <p class="why">
+             {{ p.why }}
+           </p>
+<!--
+    <div class="techs">
+      <span ng-repeat="tech in p.tech.split(',')">{{ tech }}</span>
+    </div>
+-->
+</div>
+</div>
+</div>
+
+<script>
+
+  var PROJECTS = [{
+    name:"",
+    img:"http://i.imgur.com/GHIJ969.png",
+    link:"",
+    source:"https://github.com/thisisronak",
+    what:"Resume Interactive",
+    when: "4/15",
+    why: "Some Random Text"
+  },{
+    name:"Weather App",
+    link:"music.ronakjain.com",
+    what:"Won the UX prize",
+    when: "4/14",
+    class:"small",
+    tech: "python,flask",
+    why: "Lol Cats"
+  }]
+
+  time_hint = function(d){
+   var m = parseInt(d.split("/")[0])
+   var y = parseInt(d.split('/')[1])
+   return m+y*100;
+ }
+
+ PROJECTS.forEach(function(p){
+  if(p.when){
+    var dates = p.when.split('-');
+    if(dates.length == 1){
+      p.time_hint = time_hint(dates[0])
+    }else{
+      p.time_hint = time_hint(dates[1])
+    }
+  }else{
+    console.log("no time",p.name)
+  }
+})
+
+
+ var app = angular.module('LOLApp', []);
+ app.controller('LOLController', function ($scope) {
+  $scope.projects = PROJECTS;
+});
+</script>
+
+
+
+
+  </body>
+</html>
