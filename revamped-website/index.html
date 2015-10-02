@@ -14,7 +14,7 @@
   
   <div class="container">
     <div class="info">
-      <!-- <a href="/"><img src="./index/logo.jpg" alt="Ronak Jain"></a> -->
+      <a href="/"><img src="./index/logo.jpg" alt="Ronak Jain"></a>
       <div class="info-internal">
         <h3 style="margin:0">Ronak Jain</h3>
         <p class="links">
@@ -22,18 +22,18 @@
           <a class="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
           <a class="btn btn-default" href="http://blog.ronakjain.com">Blog</a>
           <a class="btn btn-default" href="http://last.fm/user/coderon">Music</a>
-          <a class="btn btn-default" href="https://twitter.com/thisisronak">Twitter</a>
+          <a class="btn btn-default" href="https://twitter.com/ronakjain042">Twitter</a>
           <!-- <a class="btn btn-warning" href="cv.pdf">Resume</a> -->
           <a class="btn btn-primary" href="mailto:contact@ronakjain.com">Mail me!</a>
           <br>
         </p>
       </div>
       <div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <!-- <button type="button" class="btn btn-danger">Action</button> -->
+  <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
-  </button>
+  </button> -->
   <ul class="dropdown-menu">
     <li><a href="www.ndejf.com">Action</a></li>
     <li><a href="#">Another action</a></li>
@@ -44,7 +44,9 @@
 
   </div>
  </div>
-    
+    <h3> About Me</h3><br>
+    <em>I love making things. Fond of expert systems, minimalism and startups. Having experience with Python, JS and Machine Learning, I am looking forward to work with fast moving companies and a dynamic job profile. I enjoy problem solving and sincerely believe programming is a way of life.</em>
+    <h3>Stuff I made</h3>
     <!-- projects thingy -->
     <div class="projects row">
       <div class="project" ng-class="p.class" ng-repeat="p in projects | orderBy:'time_hint':true">
@@ -72,22 +74,34 @@
 <script>
 
   var PROJECTS = [{
-    name:"",
-    img:"http://i.imgur.com/GHIJ969.png",
-    link:"",
-    source:"https://github.com/thisisronak",
-    what:"Resume Interactive",
-    when: "4/15",
-    why: "Some Random Text"
+    name:"Weather",
+    link:"https://fathomless-hamlet-6897.herokuapp.com/",
+    source:"https://github.com/thisisronak/Weather",
+    what:"Django, Open Weather API",
+    when: "04/14",
+    why: "A web application which detects a user's location and informs him about the weather conditions. "
   },{
-    name:"Weather App",
-    link:"music.ronakjain.com",
-    what:"Won the UX prize",
-    when: "4/14",
-    class:"small",
-    tech: "python,flask",
-    why: "Lol Cats"
-  }]
+    name:"Twitter News Aggregator",
+    link:"https://github.com/thisisronak",
+    what:"Django, Python, Javascript",
+    when: "06/15",        
+    why: "Built a Stock News Aggregator which fetches all the relevant stock and finance related news using the Twitter API."
+  },
+  {
+    name:"Interactive Resume",
+    link:"www.thisisronak.github.io/redundant",
+    what:"Javascript",
+    when: "07/14",   
+    why: "An interactive resume which is a novel way of presenting and showcasing my project work."
+  },
+  {
+    name:"Techno Art",
+    link:"https://github.com/thisisronak/TechnoArt",
+    what:"Java",
+    when: "11/13",    
+    why: "A drawing panel which enables user to draw sketches and symmetric curves and runs as a standalone application."
+  }
+  ]
 
   time_hint = function(d){
    var m = parseInt(d.split("/")[0])
